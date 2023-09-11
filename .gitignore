@@ -1,0 +1,44 @@
+# Compiled class file
+**/*.class
+
+# Eclipse files
+**/.classpath
+**/.project
+
+# Unnecessary folders
+**/.settings/
+**/target/
+**/bin/
+
+# JRebel files
+**/rebel.xml
+
+# Log file
+**/*.log
+
+# Bat files
+**/*.bat
+
+# Package Files #
+SistemaInteligenteEstacionamiento/**/*.jar
+**/*.war
+**/*.ear
+**/*.zip
+**/*.tar.gz
+**/*.rar
+
+**/.tern-project
+
+# virtual machine crash logs
+**/hs_err_pid*
+
+#SonarFiles
+.scannerwork/
+common/integrador/.scannerwork/
+common/manage_database/.scannerwork/
+common/sabass_connector/.scannerwork/
+common/services/.scannerwork/
+common/utilities/.scannerwork/
+egresos/devolucion_aportes_terceros/.scannerwork/
+calculo_actuarial/.scannerwork/
+conciliacion/.scannerwork/

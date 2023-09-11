@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.movilidadbogota.gov.co/Comun/SrvAplRegistrarConductor/v1" xmlns:conductor="http://www.movilidadbogota.gov.co/esb/schema/Conductor/v1" xmlns:error="http://www.movilidadbogota.gov.co/esb/schema/Error/v1" xmlns:respuesta="http://www.movilidadbogota.gov.co/esb/schema/TransaccionRespuesta/v1" xmlns:solicitud="http://www.movilidadbogota.gov.co/esb/schema/TransaccionSolicitud/v1" elementFormDefault="unqualified" targetNamespace="http://www.movilidadbogota.gov.co/Comun/SrvAplRegistrarConductor/v1">
+
+    <xsd:import namespace="http://www.movilidadbogota.gov.co/esb/schema/Conductor/v1" schemaLocation="../comun/Conductor.xsd"/>
+		<xsd:import namespace="http://www.movilidadbogota.gov.co/esb/schema/TransaccionSolicitud/v1" schemaLocation="../comun/TransaccionSolicitud.xsd"/>
+		<xsd:import namespace="http://www.movilidadbogota.gov.co/esb/schema/TransaccionRespuesta/v1" schemaLocation="../comun/TransaccionRespuesta.xsd"/>
+		<xsd:import namespace="http://www.movilidadbogota.gov.co/esb/schema/Error/v1" schemaLocation="../comun/Error.xsd"/>
+
+    <xsd:element name="RegistrarConductorSolicitud" type="RegistrarConductorSolicitud"/>
+		<xsd:element name="RegistrarConductorRespuesta" type="RegistrarConductorRespuesta"/>
+		<xsd:element name="RegistrarConductorError" type="RegistrarConductorError"/>
+
+    <xsd:complexType name="RegistrarConductorSolicitud">
+      <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="solicitud" type="solicitud:TransaccionSolicitud"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="1" name="conductor" type="conductor:Conductor"/>
+      </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="RegistrarConductorRespuesta">
+      <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="respuesta" type="respuesta:TransaccionRespuesta"/>
+					<xsd:element maxOccurs="unbounded" minOccurs="1" name="conductor" type="conductor:Conductor"/>
+      </xsd:sequence>
+    </xsd:complexType>
+
+		<xsd:complexType name="RegistrarConductorError">
+      <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="respuesta" type="respuesta:TransaccionRespuesta"/>
+					<xsd:element maxOccurs="unbounded" minOccurs="1" name="errores" type="Errores"/>
+      </xsd:sequence>
+    </xsd:complexType>
+
+		<xsd:complexType name="Errores">
+      <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="1" name="error" type="error:Error"/>
+					<xsd:element maxOccurs="1" minOccurs="1" name="conductor" type="conductor:Conductor"/>
+      </xsd:sequence>
+    </xsd:complexType>
+
+</xsd:schema>

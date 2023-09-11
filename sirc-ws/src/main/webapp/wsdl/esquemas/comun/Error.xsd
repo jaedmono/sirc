@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.movilidadbogota.gov.co/esb/schema/Error/v1" elementFormDefault="unqualified" targetNamespace="http://www.movilidadbogota.gov.co/esb/schema/Error/v1" version="1.0">
+
+	<!--Encapsula la informacion del error-->
+	<xsd:complexType name="Error">
+		<xsd:sequence>
+			<!--Hace referencia al codigo de error generado por el proveedor del servicio-->
+			<xsd:element maxOccurs="1" minOccurs="1" name="codigoError" type="xsd:string"/>
+
+			<!--Hace referencia a la descripcion de negocio del codigo de error-->
+			<xsd:element maxOccurs="1" minOccurs="1" name="descripcionError" type="xsd:string"/>
+
+			<!--Hace referencia a la descripcion tecnica (excepcion original del error) del codigo de error-->
+			<xsd:element maxOccurs="1" minOccurs="0" name="descripcionErrorTecnico" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

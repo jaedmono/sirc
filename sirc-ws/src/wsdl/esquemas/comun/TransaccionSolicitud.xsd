@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://www.movilidadbogota.gov.co/esb/schema/TransaccionSolicitud/v1"
+	elementFormDefault="unqualified"
+	targetNamespace="http://www.movilidadbogota.gov.co/esb/schema/TransaccionSolicitud/v1"
+	version="1.0">
+
+	<!--Este elemento hace referencia a la solicitud de la transaccion-->
+	<xsd:complexType name="TransaccionSolicitud">
+		<xsd:sequence>
+			<!--Este elemento hace referencia al nombre del tipo de transaccion (Expedición, Refrendación, Cancelación)-->
+			<xsd:element maxOccurs="1" minOccurs="1" name="tipoTransaccion" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

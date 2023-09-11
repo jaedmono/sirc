@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://servicioreceptorpersonaduups.sdm.com/" name="ServicioReceptorPersona" targetNamespace="http://servicioreceptorpersonaduups.sdm.com/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://servicioreceptorpersonaduups.sdm.com/" targetNamespace="http://servicioreceptorpersonaduups.sdm.com/" version="1.0">
+
+  <xs:element name="errorRespuesta" type="tns:errorRespuesta"/>
+
+  <xs:complexType name="ConfirmacionRecibo">
+    <xs:sequence>
+      <xs:element name="o_codigo" type="xs:int"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="o_detalle" type="tns:errorRespuesta"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="errorRespuesta">
+    <xs:sequence>
+      <xs:element name="o_CodigoError" type="xs:string"/>
+      <xs:element name="o_MensajeError" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="NotificacionPersona">
+    <xs:sequence>
+      <xs:element name="o_tipoDocumento" type="xs:string"/>
+      <xs:element name="o_numeroDocumento" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" name="o_direccion" type="tns:Direccion"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="o_email" type="tns:Email"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="o_telefono" type="tns:Telefono"/>
+      <xs:element minOccurs="0" name="o_personaNatural" type="tns:PersonaNatural"/>
+      <xs:element minOccurs="0" name="o_personaJuridica" type="tns:PersonaJuridica"/>
+      <xs:element minOccurs="0" name="o_comentario" type="xs:string"/>
+      <xs:element minOccurs="0" name="o_autorizacionContactoEmail" type="xs:string"/>
+      <xs:element name="o_direccionArchivoAutorizacion" type="xs:string"/>
+      <xs:element minOccurs="0" name="o_origen" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Direccion">
+    <xs:sequence>
+      <xs:element name="o_direccion" type="xs:string"/>
+      <xs:element name="o_departamento" type="xs:string"/>
+      <xs:element name="o_municipioCiudad" type="xs:string"/>
+      <xs:element minOccurs="0" name="o_zona" type="xs:string"/>
+      <xs:element minOccurs="0" name="o_localidad" type="xs:string"/>
+      <xs:element minOccurs="0" name="o_tipoVia" type="xs:string"/>
+      <xs:element minOccurs="0" name="o_nombreVia" type="xs:string"/>
+      <xs:element name="o_numeroNomenclaturaPrincipal" type="xs:int"/>
+      <xs:element minOccurs="0" name="o_letraNomenclaturaPrincipal" type="xs:string"/>
+      <xs:element minOccurs="0" name="o_subFijoNomenclaturaPrincipal" type="xs:string"/>
+      <xs:element minOccurs="0" name="o_cuadrantePrincipal" type="xs:string"/>
+      <xs:element name="o_numeroNomenclaturaGeneradora" type="xs:int"/>
+      <xs:element minOccurs="0" name="o_letraNomenclaturaGeneradora" type="xs:string"/>
+      <xs:element minOccurs="0" name="o_subFijoNomenclaturaGeneradora" type="xs:string"/>
+      <xs:element name="o_numeroPlaca" type="xs:int"/>
+      <xs:element minOccurs="0" name="o_cuadranteGeneradora" type="xs:string"/>
+      <xs:element minOccurs="0" name="o_tipoPredio" type="xs:string"/>
+      <xs:element minOccurs="0" name="o_NumeroTipoPredio" type="xs:string"/>
+      <xs:element minOccurs="0" name="o_Predio" type="xs:string"/>
+      <xs:element minOccurs="0" name="o_NumeroPredio" type="xs:string"/>
+      <xs:element minOccurs="0" name="o_adicional" type="xs:string"/>
+      <xs:element name="o_estado" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Email">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="o_correoElectronico" type="xs:string"/>
+      <xs:element minOccurs="0" name="o_comentariosEmail" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Telefono">
+    <xs:sequence>
+      <xs:element name="o_telefono" type="xs:string"/>
+      <xs:element name="o_tipoTelefono" type="xs:string"/>
+      <xs:element minOccurs="0" name="o_comentarios" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="PersonaNatural">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="o_primerNombre" type="xs:string"/>
+      <xs:element minOccurs="0" name="o_segundoNombre" type="xs:string"/>
+      <xs:element minOccurs="0" name="o_primerApellido" type="xs:string"/>
+      <xs:element minOccurs="0" name="o_segundoApellido" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="PersonaJuridica">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="o_razonSocial" type="xs:string"/>
+      <xs:element minOccurs="0" name="o_nombreRepresentante" type="xs:string"/>
+      <xs:element minOccurs="0" name="o_nombreApoderado" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="registroPersonaUbicabilidadResponse">
+    <wsdl:part name="return" type="ns1:ConfirmacionRecibo">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="testAutenticacionResponse">
+    <wsdl:part name="return" type="ns1:ConfirmacionRecibo">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="testAutenticacion">
+  </wsdl:message>
+  <wsdl:message name="registroPersonaUbicabilidad">
+    <wsdl:part name="arg0" type="ns1:NotificacionPersona">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ServicioReceptorPersona">
+    <wsdl:operation name="testAutenticacion">
+      <wsdl:input message="ns1:testAutenticacion" name="testAutenticacion">
+    </wsdl:input>
+      <wsdl:output message="ns1:testAutenticacionResponse" name="testAutenticacionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registroPersonaUbicabilidad">
+      <wsdl:input message="ns1:registroPersonaUbicabilidad" name="registroPersonaUbicabilidad">
+    </wsdl:input>
+      <wsdl:output message="ns1:registroPersonaUbicabilidadResponse" name="registroPersonaUbicabilidadResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

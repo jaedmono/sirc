@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://www.movilidadbogota.gov.co/esb/schema/ListadoPlacas/v1"
+            elementFormDefault="unqualified"
+            targetNamespace="http://www.movilidadbogota.gov.co/esb/schema/ListadoPlacas/v1"
+            version="1.0">
+
+    <!--Entidad que hace referencia al listado de placas asociadas a una empresa con factor calidad-->
+    <xsd:complexType name="ListadoPlacas">
+        <xsd:sequence>
+            <!-- Listado de placas -->
+            <xsd:element maxOccurs="unbounded" name="placas" type="xsd:string"/>
+            <xsd:element maxOccurs="1" minOccurs="1" name="total" type="xsd:int"/>
+            <!-- Resultado -->
+            <xsd:element maxOccurs="1" minOccurs="1" name="resultado" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

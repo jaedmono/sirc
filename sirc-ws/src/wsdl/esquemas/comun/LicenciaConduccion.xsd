@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://www.movilidadbogota.gov.co/esb/schema/LicenciaConduccion/v1"
+            xmlns:mun="http://www.movilidadbogota.gov.co/esb/schema/MunicipioTipo/v1"
+            elementFormDefault="unqualified"
+            targetNamespace="http://www.movilidadbogota.gov.co/esb/schema/LicenciaConduccion/v1"
+            version="1.0">
+
+    <xsd:complexType name="LicenciaConduccion">
+        <xsd:sequence>
+            <xsd:element maxOccurs="1" minOccurs="1" name="categoria" type="xsd:string"/>
+            <xsd:element maxOccurs="1" minOccurs="1" name="fechaVencimiento" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

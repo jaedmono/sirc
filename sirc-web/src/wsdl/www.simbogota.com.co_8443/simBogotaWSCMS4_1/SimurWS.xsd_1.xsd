@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.4-b01-. --><xs:schema xmlns:tns="http://servicios.transito.com.co/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://servicios.transito.com.co/">
+
+<xs:element name="consultarEstadoInconsistencia" type="tns:consultarEstadoInconsistencia" />
+
+<xs:element name="consultarEstadoInconsistenciaResponse" type="tns:consultarEstadoInconsistenciaResponse" />
+
+<xs:element name="consultarSimur" type="tns:consultarSimur" />
+
+<xs:element name="consultarSimurResponse" type="tns:consultarSimurResponse" />
+
+<xs:element name="radicarInconsistencia" type="tns:radicarInconsistencia" />
+
+<xs:element name="radicarInconsistenciaResponse" type="tns:radicarInconsistenciaResponse" />
+
+<xs:complexType name="radicarInconsistencia">
+<xs:sequence>
+<xs:element name="dtoWsInconsistenciasSimurIn" type="tns:dtoWsInconsistenciasSimurIn" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="dtoWsInconsistenciasSimurIn">
+<xs:sequence>
+<xs:element name="dtoEncabezadoLogueo" type="tns:dtoEncabezadoLogueo" minOccurs="0" />
+<xs:element name="dtoWsInconsistenciasSimurParametros" type="tns:dtoWsInconsistenciasSimurParametros" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="dtoEncabezadoLogueo">
+<xs:sequence>
+<xs:element name="claveFuncionario" type="xs:string" minOccurs="0" />
+<xs:element name="idFuncionarioSolicita" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="dtoWsInconsistenciasSimurParametros">
+<xs:sequence>
+<xs:element name="codTipoInconsistencia" type="xs:decimal" minOccurs="0" />
+<xs:element name="descripcionInconsistencia" type="xs:string" minOccurs="0" />
+<xs:element name="fechaInconsistencia" type="xs:string" minOccurs="0" />
+<xs:element name="nroPlaca" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="radicarInconsistenciaResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:dtoWsInconsistenciasSimurOut" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="dtoWsInconsistenciasSimurOut">
+<xs:sequence>
+<xs:element name="aplicacion" type="xs:string" minOccurs="0" />
+<xs:element name="codInconsistencia" type="xs:long" minOccurs="0" />
+<xs:element name="codRespuesta" type="xs:string" minOccurs="0" />
+<xs:element name="idFuncionarioSolicita" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="consultarEstadoInconsistencia">
+<xs:sequence>
+<xs:element name="dtoWsConsultarEstadoInconsistenciaIn" type="tns:dtoWsConsultarEstadoInconsistenciaIn" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="dtoWsConsultarEstadoInconsistenciaIn">
+<xs:sequence>
+<xs:element name="dtoEncabezadoLogueo" type="tns:dtoEncabezadoLogueo" minOccurs="0" />
+<xs:element name="idInconsistencia" type="xs:int" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="consultarEstadoInconsistenciaResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:dtoWsConsultarEstadoInconsistenciaOut" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="dtoWsConsultarEstadoInconsistenciaOut">
+<xs:sequence>
+<xs:element name="aplicacion" type="xs:string" minOccurs="0" />
+<xs:element name="dtoWsConsultarEstadoInconsistencia" type="tns:dtoWsConsultarEstadoInconsistencia" minOccurs="0" />
+<xs:element name="idCodigoRespuesta" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="dtoWsConsultarEstadoInconsistencia">
+<xs:sequence>
+<xs:element name="codRespuesta" type="xs:decimal" minOccurs="0" />
+<xs:element name="codTipoInconsistencia" type="xs:decimal" minOccurs="0" />
+<xs:element name="fechaInconsistencia" type="xs:dateTime" minOccurs="0" />
+<xs:element name="idInconsistencia" type="xs:long" minOccurs="0" />
+<xs:element name="nroPlaca" type="xs:string" minOccurs="0" />
+<xs:element name="observaciones" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="consultarSimur">
+<xs:sequence>
+<xs:element name="idFuncionario" type="xs:string" minOccurs="0" />
+<xs:element name="clave" type="xs:string" minOccurs="0" />
+<xs:element name="placa" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="consultarSimurResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

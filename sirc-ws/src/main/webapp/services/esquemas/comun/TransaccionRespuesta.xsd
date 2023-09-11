@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://www.movilidadbogota.gov.co/esb/schema/TransaccionRespuesta/v1"
+	elementFormDefault="unqualified"
+	targetNamespace="http://www.movilidadbogota.gov.co/esb/schema/TransaccionRespuesta/v1"
+	version="1.0">
+
+<!--Este elemento hace referencia a la respuesta obtenida de la transaccion-->
+	<xsd:complexType name="TransaccionRespuesta">
+		<xsd:sequence>
+			<!--Este elemento hace referencia al tipo de transaccion (Expedición, Refrendación, Cancelación)-->
+			<xsd:element maxOccurs="1" minOccurs="1" name="tipoTransaccion" type="xsd:string"/>
+
+			<!--Este elemento hace referencia al nombre del tipo de transaccion (Expedición, Refrendación, Cancelación)-->
+			<xsd:element maxOccurs="1" minOccurs="1" name="transaccion" type="xsd:string"/>
+
+			<!--Este elemento hace referencia a un identificador único generado por el algoritmo GUID-->
+			<xsd:element maxOccurs="1" minOccurs="1" name="identificadorTransaccion">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:length value="36"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+
+			<!--Este elemento muestra la fecha en que inicia la transaccion-->
+			<xsd:element maxOccurs="1" minOccurs="1" name="fechaInicioTransaccion" type="xsd:dateTime"/>
+
+			<!--Este elemento muestra la fecha en que finaliza la transaccion-->
+			<xsd:element maxOccurs="1" minOccurs="1" name="fechaFinalTransaccion" type="xsd:dateTime"/>
+
+			<!--Este elemento muestra el estado final de la transaccion-->
+			<xsd:element maxOccurs="1" minOccurs="1" name="estadoTransaccion" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://www.movilidadbogota.gov.co/esb/schema/TransaccionRespuesta/v1"
+            xmlns:error="http://www.movilidadbogota.gov.co/esb/schema/ErrorSIRC/v1"
+            xmlns:xmime="http://www.w3.org/2005/05/xmlmime"
+            elementFormDefault="unqualified"
+            targetNamespace="http://www.movilidadbogota.gov.co/esb/schema/TransaccionRespuesta/v1"
+            version="1.0">
+
+    <xsd:import schemaLocation="Error.xsd" namespace="http://www.movilidadbogota.gov.co/esb/schema/ErrorSIRC/v1"/>
+
+    <!--Este elemento hace referencia a la respuesta obtenida de la transaccion-->
+    <xsd:complexType name="TransaccionRespuesta">
+        <xsd:sequence>
+
+            <!--Este elemento hace referencia al nombre del tipo de transaccion (Expedición, Refrendación, Cancelación)-->
+            <xsd:element maxOccurs="1" minOccurs="1" name="tarjetaControl" type="xsd:string"/>
+
+            <!--Este elemento hace referencia al tipo de transaccion (Expedición, Refrendación, Cancelación)-->
+            <xsd:element maxOccurs="1" minOccurs="1" name="tipoTransaccion" type="xsd:string"/>
+
+            <!--Este elemento hace referencia a un identificador único generado por el algoritmo GUID-->
+            <xsd:element maxOccurs="1" minOccurs="1" name="identificadorTransaccion">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:length value="36"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+
+            <!--Este elemento muestra la fecha en que inicia la transaccion-->
+            <xsd:element maxOccurs="1" minOccurs="1" name="fechaVigencia" type="xsd:date"/>
+
+            <!--Este elemento muestra la fecha en que finaliza la transaccion-->
+            <xsd:element maxOccurs="1" minOccurs="1" name="fechaValidez" type="xsd:date"/>
+
+            <!--Este elemento muestra el estado final de la transaccion-->
+            <xsd:element maxOccurs="1" minOccurs="1" name="estadoTransaccion" type="xsd:string"/>
+
+            <!--Este elemento muestra las observaciones de la operación-->
+            <xsd:element maxOccurs="1" minOccurs="1" name="observaciones" type="xsd:string"/>
+
+            <!--Este elemento muestra las observaciones de la operación-->
+            <xsd:element maxOccurs="1" minOccurs="1" name="imageQR" type="xsd:base64Binary" xmime:expectedContentTypes="image/jpeg"/>
+
+            <!--Entidad o Entidades que representa los errores presentados en la transaccion -->
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="listError" type="error:ErrorSIRC" />
+
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

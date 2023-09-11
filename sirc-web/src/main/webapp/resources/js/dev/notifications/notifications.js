@@ -1,0 +1,1 @@
+var dataTable = $('#notifications1').dataTable();

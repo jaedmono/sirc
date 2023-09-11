@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://impl.servicioreceptorpersonaduups.sdm.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://servicioreceptorpersonaduups.sdm.com/" name="ServicioReceptorPersonaDUUPSService" targetNamespace="http://impl.servicioreceptorpersonaduups.sdm.com/">
+  <wsdl:import location="http://192.168.100.67:8080/PersonasDUUPS/ServicioReceptorPersonaDUUPS?wsdl=ServicioReceptorPersona.wsdl" namespace="http://servicioreceptorpersonaduups.sdm.com/">
+    </wsdl:import>
+  <wsdl:binding name="ServicioReceptorPersonaDUUPSServiceSoapBinding" type="ns1:ServicioReceptorPersona">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="testAutenticacion">
+      <soap:operation soapAction="" style="rpc"/>
+      <wsdl:input name="testAutenticacion">
+        <soap:body namespace="http://servicioreceptorpersonaduups.sdm.com/" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="testAutenticacionResponse">
+        <soap:body namespace="http://servicioreceptorpersonaduups.sdm.com/" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registroPersonaUbicabilidad">
+      <soap:operation soapAction="" style="rpc"/>
+      <wsdl:input name="registroPersonaUbicabilidad">
+        <soap:body namespace="http://servicioreceptorpersonaduups.sdm.com/" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="registroPersonaUbicabilidadResponse">
+        <soap:body namespace="http://servicioreceptorpersonaduups.sdm.com/" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicioReceptorPersonaDUUPSService">
+    <wsdl:port binding="tns:ServicioReceptorPersonaDUUPSServiceSoapBinding" name="ServicioReceptorPersonaDUUPSPort">
+      <soap:address location="http://192.168.100.67:8080/PersonasDUUPS/ServicioReceptorPersonaDUUPS"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

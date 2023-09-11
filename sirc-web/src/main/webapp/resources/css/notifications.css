@@ -1,0 +1,20 @@
+.img1-card-image-1 {
+	width: 300px;
+	height: 200px;
+	background: url(../images/license-1.jpg) center/cover;
+	border-radius: 30px;
+}
+
+.img1-card-image-2 {
+	width: 300px;
+	height: 200px;
+	background: url(../images/license-2.jpg) center/cover;
+	border-radius: 30px;
+}
+
+.img1-card-image-3 {
+	width: 300px;
+	height: 200px;
+	background: url(../images/license-3.jpg) center/cover;
+	border-radius: 30px;
+}

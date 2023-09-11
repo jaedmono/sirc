@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="/services/RegistrarConductor.wsdl" uri="wsdl/RegistrarConductor.wsdl"/>
+    <system systemId="/services/esquemas/operaciones/RegistrarConductor.xsd" uri="wsdl/esquemas/operaciones/RegistrarConductor.xsd"/>
+    <system systemId="/services/esquemas/comun/Conductor.xsd" uri="wsdl/esquemas/comun/Conductor.xsd"/>
+    <system systemId="/services/esquemas/comun/TransaccionSolicitud.xsd" uri="wsdl/esquemas/comun/TransaccionSolicitud.xsd"/>
+    <system systemId="/services/esquemas/comun/TransaccionRespuesta.xsd" uri="wsdl/esquemas/comun/TransaccionRespuesta.xsd"/>
+    <system systemId="/services/esquemas/comun/Error.xsd" uri="wsdl/esquemas/comun/Error.xsd"/>
+    <system systemId="/services/esquemas/comun/ContactoPersona.xsd" uri="wsdl/esquemas/comun/ContactoPersona.xsd"/>
+    <system systemId="/services/esquemas/comun/Identificacion.xsd" uri="wsdl/esquemas/comun/Identificacion.xsd"/>
+    <system systemId="/services/esquemas/comun/TarjetaControl.xsd" uri="wsdl/esquemas/comun/TarjetaControl.xsd"/>
+    <system systemId="/services/esquemas/comun/Empresa.xsd" uri="wsdl/esquemas/comun/Empresa.xsd"/>
+    <system systemId="/services/esquemas/comun/PagoPILA.xsd" uri="wsdl/esquemas/comun/PagoPILA.xsd"/>
+    <system systemId="/services/esquemas/comun/Vehiculo.xsd" uri="wsdl/esquemas/comun/Vehiculo.xsd"/>
+    <system systemId="/services/esquemas/comun/Telefono.xsd" uri="wsdl/esquemas/comun/Telefono.xsd"/>
+    <system systemId="/services/esquemas/comun/UbicacionPersona.xsd" uri="wsdl/esquemas/comun/UbicacionPersona.xsd"/>
+    <system systemId="/services/esquemas/comun/Municipio.xsd" uri="wsdl/esquemas/comun/Municipio.xsd"/>
+    <system systemId="/services/esquemas/comun/Departamento.xsd" uri="wsdl/esquemas/comun/Departamento.xsd"/>
+    <system systemId="http://192.168.100.67:8080/PersonasDUUPS/ServicioReceptorPersonaDUUPS?wsdl" uri="wsdl/192.168.100.67_8080/PersonasDUUPS/ServicioReceptorPersonaDUUPS.wsdl"/>
+    <system systemId="http://192.168.100.67:8080/PersonasDUUPS/ServicioReceptorPersonaDUUPS?wsdl=ServicioReceptorPersona.wsdl" uri="wsdl/192.168.100.67_8080/PersonasDUUPS/ServicioReceptorPersonaDUUPS.wsdl_ServicioReceptorPersona.wsdl"/>
+    <system systemId="https://www.simbogota.com.co:8443/simBogotaWSCMS4_1/SimurWS?wsdl" uri="wsdl/www.simbogota.com.co_8443/simBogotaWSCMS4_1/SimurWS.wsdl"/>
+    <system systemId="https://www.simbogota.com.co:8443/simBogotaWSCMS4_1/SimurWS?xsd=1" uri="wsdl/www.simbogota.com.co_8443/simBogotaWSCMS4_1/SimurWS.xsd_1.xsd"/>
+</catalog>

@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>co.gov.movilidadbogota</groupId>
+        <artifactId>sirc</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>sirc-ws</artifactId>
+    <packaging>war</packaging>
+    <version>1.0.18</version>
+    <name>sirc-ws</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-web-api</artifactId>
+            <version>6.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>3.0.5.RELEASE</version>
+        </dependency>
+        
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>3.0.5.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jdom</groupId>
+            <artifactId>jdom2</artifactId>
+            <version>2.0.6</version>
+        </dependency>
+        <dependency>
+		    <groupId>org.apache.axis</groupId>
+		    <artifactId>axis</artifactId>
+		    <version>1.4</version>
+		</dependency>
+
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>core</artifactId>
+            <version>3.4.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>javase</artifactId>
+            <version>3.4.1</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <webResources>
+                        <resource>
+                            <directory>src</directory>
+                            <targetPath>WEB-INF</targetPath>
+                            <includes>
+                                <include>jax-ws-catalog.xml</include>
+                                <include>wsdl/**</include>
+                            </includes>
+                        </resource>
+                    </webResources>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.jvnet.jax-ws-commons</groupId>
+                <artifactId>jaxws-maven-plugin</artifactId>
+                <version>2.3</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <configuration>
+                            <!-- Needed with JAXP 1.5 -->
+                            <vmArgs>
+                                <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
+                            </vmArgs>
+                            <wsdlFiles>
+                                <wsdlFile>RegistrarConductor.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <staleFile>${project.build.directory}/jaxws/stale/RegistrarConductor.stale</staleFile>
+                        </configuration>
+                        <id>wsimport-generate-RegistrarConductor</id>
+                        <phase>generate-sources</phase>
+                    </execution>
+                    <execution>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <configuration>
+                            <!-- Needed with JAXP 1.5 -->
+                            <vmArgs>
+                                <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
+                            </vmArgs>
+                            <wsdlFiles>
+                                <wsdlFile>192.168.100.67_8080/PersonasDUUPS/ServicioReceptorPersonaDUUPS.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <packageName>co.gov.movilidadbogota.ws.duups</packageName>
+                            <wsdlLocation>http://192.168.100.67:8080/PersonasDUUPS/ServicioReceptorPersonaDUUPS?wsdl</wsdlLocation>
+                            <staleFile>${project.build.directory}/jaxws/stale/ServicioReceptorPersonaDUUPS.stale</staleFile>
+                        </configuration>
+                        <id>wsimport-generate-ServicioReceptorPersonaDUUPS</id>
+                        <phase>generate-sources</phase>
+                    </execution>
+                    <execution>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <configuration>
+                            <!-- Needed with JAXP 1.5 -->
+                            <vmArgs>
+                                <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
+                            </vmArgs>
+                            <wsdlFiles>
+                                <wsdlFile>192.168.100.67_8080/PersonasDUUPS/ServicioReceptorPersonaDUUPS.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <packageName>co.gov.movilidadbogota.ws.duups</packageName>
+                            <wsdlLocation>http://192.168.100.67:8080/PersonasDUUPS/ServicioReceptorPersonaDUUPS?wsdl</wsdlLocation>
+                            <staleFile>${project.build.directory}/jaxws/stale/ServicioReceptorPersonaDUUPS_1.stale</staleFile>
+                        </configuration>
+                        <id>wsimport-generate-ServicioReceptorPersonaDUUPS_1</id>
+                        <phase>generate-sources</phase>
+                    </execution>
+                    <execution>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <configuration>
+                            <!-- Needed with JAXP 1.5 -->
+                            <vmArgs>
+                                <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
+                            </vmArgs>
+                            <wsdlFiles>
+                                <wsdlFile>www.simbogota.com.co_8443/simBogotaWSCMS4_1/SimurWS.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <packageName>co.gov.movilidadbogota.ws.sim</packageName>
+                            <vmArgs>
+                                <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
+                            </vmArgs>
+                            <wsdlLocation>https://www.simbogota.com.co:8443/simBogotaWSCMS4_1/SimurWS?wsdl</wsdlLocation>
+                            <staleFile>${project.build.directory}/jaxws/stale/SimurWS.stale</staleFile>
+                        </configuration>
+                        <id>wsimport-generate-SimurWS</id>
+                        <phase>generate-sources</phase>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>javax.xml</groupId>
+                        <artifactId>webservices-api</artifactId>
+                        <version>2.0</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <sourceDestDir>${project.build.directory}/generated-sources/jaxws-wsimport</sourceDestDir>
+                    <xnocompile>true</xnocompile>
+                    <verbose>true</verbose>
+                    <extension>true</extension>
+                    <catalog>${basedir}/src/jax-ws-catalog.xml</catalog>
+                </configuration>
+            </plugin>
+        </plugins>
+        <finalName>sirc-ws</finalName>
+    </build>
+
+</project>

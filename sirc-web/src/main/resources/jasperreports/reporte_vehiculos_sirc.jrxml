@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporte_vehiculos_sirc" pageWidth="5000" pageHeight="612" orientation="Landscape" columnWidth="5000" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isIgnorePagination="true" uuid="ea40b2b4-7282-4c02-abe4-97ea5154f53e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="1680"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="fechaInicial" class="java.util.Date">
+		<defaultValueExpression><![CDATA[new Date()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fechaFinal" class="java.util.Date">
+		<defaultValueExpression><![CDATA[new Date()]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     VEHICULO."ID_VEHICULO",
+     VEHICULO."FECHA_EXPEDICION",
+     VEHICULO."FECHA_VALIDEZ",
+     VEHICULO."FECHA_VIGENCIA",
+     VEHICULO."PLACA_SERIAL_VEHICULO",
+     VEHICULO."TARJETA_CONTROL",
+     VEHICULO."TIPO_TRANSACCION",
+     VEHICULO."ID_CONDUCTOR",
+     VEHICULO."ID_EMPRESA",
+     ESTADO."DESCRIPCION" AS ID_ESTADO,
+     COBRO."DESCRIPCION_METCOBRO" AS ID_METODOCOBRO,
+     VEHICULO."FECHA_VENCIMIENTO_SOAT" AS FECHA_VENCIMIENTO_SOAT,
+     VEHICULO."FECHA_VENCIMIENTO_RTM" AS FECHA_VENCIMIENTO_RTM,
+     VEHICULO."NRO_TARJETA_OPERACION" AS NRO_TARJETA_OPERACION,
+     VEHICULO."FECHA_VENCIMIENTO_TO" AS FECHA_VENCIMIENTO_TO,
+     VEHICULO."NRO_SOAT" AS NRO_SOAT,
+     VEHICULO."NRO_RTM" AS NRO_RTM,
+     EMPRESA."NOMBRE_RAZON_SOCIAL" AS NOMBRE_RAZON_SOCIAL,
+     EMPRESA."ID_NIT_EMPRESA" AS ID_NIT_EMPRESA,
+     PERSONA."NOMBRES" AS NOMBRES,
+     PERSONA."APELLIDOS" AS APELLIDOS,
+     PERSONA."CORREO_ELECTRONICO" AS CORREO_ELECTRONICO,
+     PERSONA."CELULAR" AS CELULAR,
+     PERSONA."NUMERO_DOCUMENTO" AS NUMERO_DOCUMENTO
+FROM
+     "SMB_TARJETA_CONTROL_ESTADO" ESTADO INNER JOIN "SMB_CONDUCTOR_VEHICULO" VEHICULO ON ESTADO."ID" = VEHICULO."ID_ESTADO"
+     INNER JOIN "SMB_METODO_COBRO" COBRO ON VEHICULO."ID_METODOCOBRO" = COBRO."ID_METODOCOBRO"
+     INNER JOIN "SMI_EMPRESA" EMPRESA ON VEHICULO."ID_EMPRESA" = EMPRESA."ID_EMPRESA"
+     INNER JOIN "SMI_CONDUCTOR" CONDUCTOR ON VEHICULO."ID_CONDUCTOR" = CONDUCTOR."ID_CONDUCTOR"
+     INNER JOIN "SMI_PERSONA" PERSONA ON CONDUCTOR."ID_PERSONA" = PERSONA."ID_PERSONA"
+
+WHERE
+      (FECHA_EXPEDICION >= TO_DATE($P{fechaInicial}) AND FECHA_EXPEDICION < TO_DATE($P{fechaFinal}) +1) OR
+      (FECHA_VALIDEZ >= TO_DATE($P{fechaInicial}) AND FECHA_VALIDEZ < TO_DATE($P{fechaFinal}) +1) OR
+      (FECHA_VIGENCIA >= TO_DATE($P{fechaInicial}) AND FECHA_VIGENCIA < TO_DATE($P{fechaFinal}) +1) OR
+      (FECHA_VENCIMIENTO_SOAT >= TO_DATE($P{fechaInicial}) AND FECHA_VENCIMIENTO_SOAT < TO_DATE($P{fechaFinal}) +1) OR
+      (FECHA_VENCIMIENTO_RTM >= TO_DATE($P{fechaInicial}) AND FECHA_VENCIMIENTO_RTM < TO_DATE($P{fechaFinal}) +1) OR
+      (FECHA_VENCIMIENTO_TO >= TO_DATE($P{fechaInicial}) AND FECHA_VENCIMIENTO_TO < TO_DATE($P{fechaFinal}) +1)]]>
+	</queryString>
+	<field name="ID_VEHICULO" class="java.math.BigDecimal"/>
+	<field name="FECHA_EXPEDICION" class="java.util.Date"/>
+	<field name="FECHA_VALIDEZ" class="java.util.Date"/>
+	<field name="FECHA_VIGENCIA" class="java.util.Date"/>
+	<field name="PLACA_SERIAL_VEHICULO" class="java.lang.String"/>
+	<field name="TARJETA_CONTROL" class="java.lang.String"/>
+	<field name="TIPO_TRANSACCION" class="java.lang.String"/>
+	<field name="ID_CONDUCTOR" class="java.math.BigDecimal"/>
+	<field name="ID_EMPRESA" class="java.math.BigDecimal"/>
+	<field name="ID_ESTADO" class="java.lang.String"/>
+	<field name="ID_METODOCOBRO" class="java.lang.String"/>
+	<field name="FECHA_VENCIMIENTO_SOAT" class="java.util.Date"/>
+	<field name="FECHA_VENCIMIENTO_RTM" class="java.util.Date"/>
+	<field name="NRO_TARJETA_OPERACION" class="java.lang.String"/>
+	<field name="FECHA_VENCIMIENTO_TO" class="java.util.Date"/>
+	<field name="NRO_SOAT" class="java.lang.String"/>
+	<field name="NRO_RTM" class="java.lang.String"/>
+	<field name="NOMBRE_RAZON_SOCIAL" class="java.lang.String"/>
+	<field name="ID_NIT_EMPRESA" class="java.lang.String"/>
+	<field name="NOMBRES" class="java.lang.String"/>
+	<field name="APELLIDOS" class="java.lang.String"/>
+	<field name="CORREO_ELECTRONICO" class="java.lang.String"/>
+	<field name="CELULAR" class="java.math.BigDecimal"/>
+	<field name="NUMERO_DOCUMENTO" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="105" height="20" uuid="8da3c3fd-82bd-4445-ac3b-e36ed0938e62"/>
+				<text><![CDATA[ID_VEHICULO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" x="105" y="0" width="142" height="20" uuid="f5084e86-45ed-455f-9a10-19fe715d39c6"/>
+				<text><![CDATA[FECHA_EXPEDICION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" x="247" y="0" width="184" height="20" uuid="493e13ea-f1c4-4137-80b5-89e69fe21d45"/>
+				<text><![CDATA[FECHA_VALIDEZ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" x="431" y="0" width="284" height="20" uuid="6073cd94-1caf-4ffa-8175-b5a8d2cdddf4"/>
+				<text><![CDATA[FECHA_VIGENCIA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" x="715" y="0" width="143" height="20" uuid="9b2d3e8a-b504-434d-86ce-232df7129c29"/>
+				<text><![CDATA[PLACA_SERIAL_VEHICULO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" x="858" y="0" width="137" height="20" uuid="7fb7ae97-9271-49e9-a498-c49b86825241"/>
+				<text><![CDATA[TARJETA_CONTROL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" x="995" y="0" width="130" height="20" uuid="5f20b823-543b-42b4-849d-148614590d2d"/>
+				<text><![CDATA[TIPO_TRANSACCION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" x="1125" y="0" width="168" height="20" uuid="985f8bf3-0c3a-4f8f-8787-78a8158fe380"/>
+				<text><![CDATA[ID_CONDUCTOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" x="1293" y="0" width="111" height="20" uuid="b3dc101e-903a-4853-9747-f1ff18bafb3e"/>
+				<text><![CDATA[ID_EMPRESA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" x="1404" y="0" width="447" height="20" uuid="31bacdb8-7619-472f-a343-235d1db591ef"/>
+				<text><![CDATA[ID_ESTADO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" x="1851" y="0" width="288" height="20" uuid="57e75c9e-44b2-4f12-8824-d0d545f5cf86"/>
+				<text><![CDATA[ID_METODOCOBRO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" x="2139" y="0" width="150" height="20" uuid="515b28f7-ca68-423d-9f3f-efd4d804edbd"/>
+				<text><![CDATA[FECHA_VENCIMIENTO_SOAT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" x="2289" y="0" width="159" height="20" uuid="caf9d013-5eb8-47c8-856b-f7e739bbc192"/>
+				<text><![CDATA[FECHA_VENCIMIENTO_RTM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" x="2448" y="0" width="171" height="20" uuid="3fe5abe9-4806-4a1e-aec0-aba4907eb42b"/>
+				<text><![CDATA[NRO_TARJETA_OPERACION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" x="2619" y="0" width="172" height="20" uuid="097bda8d-f5d8-4803-b885-905ba67fc221"/>
+				<text><![CDATA[FECHA_VENCIMIENTO_TO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" x="2791" y="0" width="173" height="20" uuid="dec0425f-cf13-4cff-ad31-a3436f7f2e89"/>
+				<text><![CDATA[NRO_SOAT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" x="2964" y="0" width="222" height="20" uuid="e431b7d4-1232-4058-a053-5bfd506c1bde"/>
+				<text><![CDATA[NRO_RTM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" x="3186" y="0" width="222" height="20" uuid="0c94062a-7dd0-4909-b30d-b736fa298321"/>
+				<text><![CDATA[NOMBRE_RAZON_SOCIAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" x="3408" y="0" width="205" height="20" uuid="3ac7ac35-9775-4833-a9a8-133cfb7bd224"/>
+				<text><![CDATA[ID_NIT_EMPRESA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" x="3613" y="0" width="275" height="20" uuid="fc2998a9-3c1c-41d6-9e25-65ca091b192b"/>
+				<text><![CDATA[NOMBRES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" x="3888" y="0" width="284" height="20" uuid="4686f0fc-a3a1-4602-8fb2-faf386f6efa1"/>
+				<text><![CDATA[APELLIDOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" x="4172" y="0" width="292" height="20" uuid="a93646e7-4405-4690-8c46-3b58c9c79aca"/>
+				<text><![CDATA[CORREO_ELECTRONICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" x="4464" y="0" width="157" height="20" uuid="bee12ba3-cbc1-4671-92f2-07de86806bb7"/>
+				<text><![CDATA[CELULAR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" x="4621" y="0" width="124" height="20" uuid="b5278d8c-c88c-40ca-bae8-e2ca34794999"/>
+				<text><![CDATA[NUMERO_DOCUMENTO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="105" height="20" isRemoveLineWhenBlank="true" uuid="7d1678c4-8bf5-4679-a8ce-3a5abad5acb7"/>
+				<textFieldExpression><![CDATA[$F{ID_VEHICULO}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="105" y="0" width="142" height="20" isRemoveLineWhenBlank="true" uuid="2c3f0337-0d92-4102-918b-bff224ced741"/>
+				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format($F{FECHA_EXPEDICION})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="431" y="0" width="284" height="20" isRemoveLineWhenBlank="true" uuid="41649440-9396-44d3-8b0b-497a9db1b404"/>
+				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format($F{FECHA_VIGENCIA})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="715" y="0" width="143" height="20" isRemoveLineWhenBlank="true" uuid="beace624-b882-4100-b254-2733bfa324b8"/>
+				<textFieldExpression><![CDATA[$F{PLACA_SERIAL_VEHICULO}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="858" y="0" width="137" height="20" isRemoveLineWhenBlank="true" uuid="975f687c-864b-45bb-943e-c5dd5ddcc7a3"/>
+				<textFieldExpression><![CDATA[$F{TARJETA_CONTROL}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="995" y="0" width="130" height="20" isRemoveLineWhenBlank="true" uuid="26087707-76fb-4c98-ad96-df74fa144fd6"/>
+				<textFieldExpression><![CDATA[$F{TIPO_TRANSACCION}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="1125" y="0" width="168" height="20" isRemoveLineWhenBlank="true" uuid="a6836a86-2928-46b2-a33c-f138889554c8"/>
+				<textFieldExpression><![CDATA[$F{ID_CONDUCTOR}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="1293" y="0" width="111" height="20" isRemoveLineWhenBlank="true" uuid="821e5ae4-b313-4be6-95f3-576ed384bc38"/>
+				<textFieldExpression><![CDATA[$F{ID_EMPRESA}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="1404" y="0" width="447" height="20" isRemoveLineWhenBlank="true" uuid="e8fc7cb0-e7a5-46f0-afaa-a628b989cf28"/>
+				<textFieldExpression><![CDATA[$F{ID_ESTADO}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="1851" y="0" width="288" height="20" isRemoveLineWhenBlank="true" uuid="5af6839a-13e4-4899-8a12-9cf8cfde8e57"/>
+				<textFieldExpression><![CDATA[$F{ID_METODOCOBRO}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="2139" y="0" width="150" height="20" isRemoveLineWhenBlank="true" uuid="f4574707-bf37-4d49-8447-55ae1667c8a8"/>
+				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format($F{FECHA_VENCIMIENTO_SOAT})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="2289" y="0" width="159" height="20" isRemoveLineWhenBlank="true" uuid="30f71278-a9b2-42f6-a119-b4e6f1b38204"/>
+				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format($F{FECHA_VENCIMIENTO_RTM})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="2448" y="0" width="171" height="20" isRemoveLineWhenBlank="true" uuid="54363592-88af-4a6a-97ec-5415676f4fbd"/>
+				<textFieldExpression><![CDATA[$F{NRO_TARJETA_OPERACION}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="2619" y="0" width="172" height="20" isRemoveLineWhenBlank="true" uuid="25940adf-c98d-48c8-8a44-811ab2288611"/>
+				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format($F{FECHA_VENCIMIENTO_TO})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="2791" y="0" width="173" height="20" isRemoveLineWhenBlank="true" uuid="4b7f8a1e-3e13-498a-a834-79c1ed84f2fb"/>
+				<textFieldExpression><![CDATA[$F{NRO_SOAT}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="2964" y="0" width="222" height="20" isRemoveLineWhenBlank="true" uuid="81e1ac4c-d894-4a1d-abc1-98cf1e2401b7"/>
+				<textFieldExpression><![CDATA[$F{NRO_RTM}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="3186" y="0" width="222" height="20" isRemoveLineWhenBlank="true" uuid="658f67ad-62fd-4ea7-a492-58f7bbbf87b8"/>
+				<textFieldExpression><![CDATA[$F{NOMBRE_RAZON_SOCIAL}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="3408" y="0" width="205" height="20" isRemoveLineWhenBlank="true" uuid="21a5ae7b-983d-4e04-95da-e1e3253d631e"/>
+				<textFieldExpression><![CDATA[$F{ID_NIT_EMPRESA}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="3613" y="0" width="275" height="20" isRemoveLineWhenBlank="true" uuid="fa77c664-f784-4bc4-b7a2-0531afe7f517"/>
+				<textFieldExpression><![CDATA[$F{NOMBRES}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="3888" y="0" width="284" height="20" isRemoveLineWhenBlank="true" uuid="63413da3-5d12-4e68-91fd-65f9680079ce"/>
+				<textFieldExpression><![CDATA[$F{APELLIDOS}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="4172" y="0" width="292" height="20" isRemoveLineWhenBlank="true" uuid="43b4adb6-397f-408e-b956-97e58737093f"/>
+				<textFieldExpression><![CDATA[$F{CORREO_ELECTRONICO}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="4464" y="0" width="157" height="20" isRemoveLineWhenBlank="true" uuid="9095d143-8f04-4e17-a330-d9f5b03bf2e0"/>
+				<textFieldExpression><![CDATA[$F{CELULAR}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="4621" y="0" width="124" height="20" isRemoveLineWhenBlank="true" uuid="4c2c1e7e-c93a-48f5-a997-20e9ad82cf2d"/>
+				<textFieldExpression><![CDATA[$F{NUMERO_DOCUMENTO}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="247" y="0" width="184" height="20" isRemoveLineWhenBlank="true" uuid="c954e34b-5470-4194-a6b9-06e8f36725b4"/>
+				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format($F{FECHA_VALIDEZ})]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

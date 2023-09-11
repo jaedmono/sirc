@@ -1,0 +1,12 @@
+1. Realizar los siguientes comandos al proyecto sirc-core: "mvn clean install" y "mvn clean package" a través de linea de comandos en la ruta del proyecto sirc-core donde se tenga el proyecto ...\CO_833_SIRC\sirc-core
+2. Una vez ejecutados los comandos exitosamente tomar el jar de la ruta del proyecto que este manejando ...\CO_833_SIRC\sirc-core\target y pegarlo en la carpeta ...\CO_833_SIRC\Dependencias
+3. Con el jar anteriormente generado y copiado en la carpeta Dependencias nos dirigimos a dicha ruta en la linea de comandos por ejemplo C:\Users\Asesoftware\Documents\Proyectos2020\SIRC\CO_833_SIRC\Dependencias
+4. Ejecutamos el siguiente comando 
+	mvn install:install-file -Dfile=sirc-core.jar -DgroupId=co.gov.movilidadbogota -DartifactId=sirc-core -Dversion=1.0.0 -Dpackaging=jar
+5. Dentro de esta misma ruta existes dos jar de dependencias, así que estando en cmd en esta misma ruta de dependencias ejecutamos los siguientes comandos para dos dependencias que generan inconveniente al descargar:
+	mvn install:install-file -Dfile=itext-2.1.7.js5.jar -DgroupId=com.lowagie -DartifactId=itext -Dversion=2.1.7 -Dpackaging=jar
+	mvn install:install-file -Dfile=olap4j-0.9.7.309-JS-3.jar -DgroupId=org.olap4j -DartifactId=olap4j -Dversion=0.9.7.309-JS-3 -Dpackaging=jar
+6. Hecho esto procedemos a compilar desde el ide normalmente, en el proyecto sirc, nos vamos con clic derecho a la opción Run as -> maven clean, hecho esto lo mismo con Run as -> maven install para lo cual ya debe compilar satisfactoriamente todos los proyectos.
+
+
+mvn install:install-file -Dfile=jasperreports-6.4.0.jar -DgroupId=net.sf.jasperreports -DartifactId=jasperreports -Dversion=6.4.0 -Dpackaging=jar

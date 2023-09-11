@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.movilidadbogota.gov.co/esb/schema/Empresa/v1" elementFormDefault="unqualified" targetNamespace="http://www.movilidadbogota.gov.co/esb/schema/Empresa/v1" version="1.0">
+
+	<!--Entidad que representa las empresas en la que labora el conductor-->
+	<xsd:complexType name="Empresa">
+		<xsd:sequence>
+			<!--Codigo de la empresa-->
+			<xsd:element maxOccurs="1" minOccurs="0" name="codigoEmpresa" nillable="true" type="xsd:string"/>
+
+			<!--Nombre o razón social de la empresa. -->
+			<xsd:element maxOccurs="1" minOccurs="0" name="razonSocial" nillable="true" type="xsd:string"/>
+
+			<!--Número de identificación tributaria -->
+			<xsd:element maxOccurs="1" minOccurs="0" name="numeroIdentificacionTributaria" nillable="true" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,515 @@
+@media only screen and (min-width: 992px) {
+	.centercard2 {
+		margin-left: -60px;
+	}
+	.pass-forget {
+		margin-left: -55px;
+	}
+	.header {
+		margin-left: -25px;
+	}
+	.logo-bogota {
+		/* 		width: 200px !important; */
+		margin: 2.1rem 0 1.68rem;
+		margin-left: 20px;
+	}
+	.header-title {
+		color: #999;
+		letter-spacing: 2px;
+		font-size: 30px;
+	}
+	.right-header {
+		text-align: right;
+	}
+	.title {
+		font-size: 2.3em !important;
+		margin-top: 90px !important;
+		text-align: right;
+	}
+	.img-logo {
+		margin: 2.1rem 0 1.68rem;
+		margin-left: 20px;
+		float: right !important;
+	}
+	
+	.icon-img {
+		max-width: none;
+		margin-right: 80px !important;
+		margin-top: 45px !important;
+		display: block;
+	}
+}
+
+@media only screen and (max-width: 991px) {
+	.centercard {
+		margin-left: 16px;
+	}
+	.logo-bogota {
+		/* 		width: 30% !important; */
+		margin: 0 auto;
+		margin-top: 22px;
+	}
+	.header-title {
+		color: #999;
+		font-size: 25px;
+	}
+	.right-header {
+		text-align: center;
+	}
+	.title {
+		font-size: 2.3em !important;
+		margin-top: 0px;
+	}
+	.img-logo {
+		float: center !important;
+		margin: 0 auto;
+	}
+	.icon-img {
+		display: none;
+	}
+	.banner-sirc {
+		height: 75px !important;
+	}
+	.white-background {
+		top: 0px !important;
+	}
+	.one-three {
+		margin-top: -20px !important;
+		text-align: center;
+	}
+	.text-left {
+		text-align: center;
+	}
+}
+
+a {
+	cursor: pointer;
+}
+
+.text-info-card {
+	margin: 0px 0px -10px 0px;
+	justify-content: center;
+}
+
+.breadcrumb {
+	font-family: "Arial Narrow", Arial, sans-serif;
+	font-stretch: condensed;
+	color: #878787;
+	font-size: 1.1em;
+	border-bottom: 4px solid #e7e7e7;
+	background-color: #fff5d2;
+	margin-top: 16px;
+}
+
+.breadcrumbItem {
+	color: #878787 !important;
+}
+
+.breadcrumbItem a {
+	color: #878787 !important;
+	text-decoration: underline;
+}
+
+.breadcrumbItem a:hover {
+	color: #424242 !important;
+}
+
+.centercard2 {
+	box-shadow: 0 0px 0px 0 rgba(0, 0, 0, .16), 0 0px 0px 0
+		rgba(0, 0, 0, .12);
+	margin-right: 2.5%;
+}
+
+.navbar-fixed-bottom, .navbar-fixed-top {
+	position: initial;
+}
+
+.jumbotron {
+	background-color: white;
+}
+
+.navbar-default {
+	background-color: #d4d4d4;
+	border-color: #c3bcbc;
+}
+
+.navbar-default .navbar-brand {
+	color: #2d2d2d;
+}
+
+.eq-ui-btn-mini-fab {
+	margin-top: -8px;
+}
+
+.eq-ui-nav-menu .eq-ui-search {
+	display: none;
+}
+
+.eq-ui-nav-menu .mdi-filter-variant {
+	display: none;
+}
+
+.eq-ui-nav-menu .mdi-dots-vertical {
+	display: none;
+}
+
+/* SIMPLE PAGINATION */
+.dataTables_length {
+	margin-left: 20px;
+	margin-top: 10px;
+}
+
+.dataTables_filter {
+	display: none;
+}
+
+.dataTables_info {
+	margin-left: 20px;
+	margin-top: 10px;
+}
+
+.pagination {
+	margin-right: 20px !important;
+	margin-top: 10px !important;
+}
+
+/* Images */
+.img1-card-image {
+	width: 300px;
+	height: 200px;
+	background: url(../images/license.jpg) center/cover;
+	border-radius: 30px;
+}
+
+.sin-vigencia {
+	background: rgba(251, 186, 113, 0.7) !important;
+}
+
+.sin-validez {
+	background: rgba(251, 113, 113, 0.7) !important;
+}
+
+.proximo-vencimiento {
+	background: rgba(113, 183, 251, 0.7) !important;
+}
+
+.text-white {
+	color: #FFF !important;
+	font-weight: bold !important;
+}
+
+.centercard {
+	margin-bottom: 10px;
+}
+
+/* HEADER */
+.banner {
+	border-bottom: 8px solid #e7e7e7;
+	background: linear-gradient(#e7e7e7, #fafafa);
+	background-image: linear-gradient(rgb(231, 231, 231), rgb(250, 250, 250));
+	background-position-x: initial;
+	background-position-y: initial;
+	background-size: initial;
+	background-repeat-x: initial;
+	background-repeat-y: initial;
+	background-attachment: initial;
+	background-origin: initial;
+	background-clip: initial;
+	background-color: initial;
+	width: 100%;
+}
+
+/* FOOTER */
+.footer-bg2 {
+	background-color: #4b4b4b;
+	width: 100%;
+	margin: 0 auto;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+.footer-h4 {
+	font-size: 16px;
+	color: #ccc;
+	letter-spacing: 1px;
+	margin-top: 5px;
+}
+
+.footer-h7 {
+	font-size: 11px;
+	color: #ccc;
+	letter-spacing: 1px;
+}
+
+.footer-h6 {
+	font-size: 11px;
+	color: #999;
+	letter-spacing: 1px;
+}
+
+.footer_direccion {
+	text-align: center;
+	padding-top: 0px;
+	padding-bottom: 20px;
+}
+
+.footer-bg3 {
+	background-color: #6ab5e8;
+	width: 100%;
+	margin: 0 auto;
+	height: 45px;
+	padding-top: 10px;
+}
+
+.footer-copy {
+	color: white;
+	font-weight: bold;
+}
+
+.medio {
+	background-color: #4b4b4b;
+	width: 100%;
+	height: 65px;
+	margin-top: 1px;
+	margin-bottom: 1px;
+}
+
+.footer {
+	right: 0;
+	bottom: 0;
+	left: 0;
+	text-align: center;
+}
+
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button
+	{
+	-webkit-appearance: none !important;
+	margin: 0 !important;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
+.logo-simur {
+	
+}
+
+.title {
+	font-size: 2.3em;
+	margin-top: 10px;
+	font-family: "Arial Narrow", Arial, sans-serif;
+	font-stretch: condensed;
+	margin-bottom: -10px;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.head-banner {
+	padding-right: 50px;
+	padding-left: 50px;
+	margin-top: -20px;
+}
+
+.logo-bogota {
+	margin-bottom: 5px;
+}
+
+.banner-sirc {
+	background: url('../images/sirc/img-sirc.jpg') no-repeat right center;
+	background-size: cover;
+	height: 215px;
+}
+
+.white-background {
+	position: relative;
+	top: -60px;
+	background-color: #fff;
+	border-radius: 10px 10px 0 0;
+	border-bottom: 4px solid #d6d6d6;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	font-size: 13px;
+	font-family: Arial, Helvetica, Verdana;
+	background-color: #e7e7e7;
+}
+
+.icon-img {
+	position: relative;
+	z-index: 2;
+	float: right;
+	margin-right: 80px;
+	margin-top: 45px;
+}
+
+.footer-left {
+	color: #ccc;
+	line-height: 1em;
+	padding: 45px;
+	font-size: 13px !important;
+	font-weight: bold;
+}
+
+.one-three {
+	margin-top: 50px;
+}
+
+.one-three li a {
+	color: #fff;
+}
+
+.fa-phone span {
+	color: #4b4b4b;
+}
+
+.fa-phone {
+	color: #4b4b4b;
+	position: relative;
+	z-index: 2;
+	top: 2px;
+	left: 7px;
+	font-size: 2em !important;;
+}
+
+.faico li:first-child {
+	background-color: #fff;
+	height: 41px;
+	border-radius: 3px;
+	width: 95px;
+	position: relative;
+	z-index: 1;
+	top: -2px;
+}
+
+.faico li {
+	display: inline-block;
+	margin: 0 8px 0 0;
+	padding: 0;
+	line-height: normal;
+}
+
+#footer .fa2x {
+	font-size: 2.6em !important;
+}
+
+.faico li span {
+	color: #4b4b4b;
+	font-family: Impact, Charcoal, sans-serif;
+	font-stretch: condensed;
+	font-weight: bold;
+	padding: 4px 7px 4px 5px;
+	position: relative;
+	top: 2px;
+	left: 7px;
+	font-size: 1.9em;
+}
+
+
+
+
+/*********************************************/
+.center-block {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.input-group .icon-addon .form-control {
+    border-radius: 0;
+}
+
+.icon-addon {
+    position: relative;
+    color: #555;
+    display: block;
+}
+
+.icon-addon:after,
+.icon-addon:before {
+    display: table;
+    content: " ";
+}
+
+.icon-addon:after {
+    clear: both;
+}
+
+.icon-addon.addon-md .glyphicon,
+.icon-addon .glyphicon, 
+.icon-addon.addon-md .fa,
+.icon-addon .fa {
+    position: absolute;
+    z-index: 2;
+    left: 10px;
+    font-size: 14px;
+    width: 20px;
+    margin-left: -2.5px;
+    text-align: center;
+    padding: 10px 0;
+    top: 1px
+}
+
+.icon-addon.addon-lg .form-control {
+    line-height: 1.33;
+    height: 46px;
+    font-size: 18px;
+    padding: 10px 16px 10px 40px;
+}
+
+.icon-addon.addon-sm .form-control {
+    height: 30px;
+    padding: 5px 10px 5px 28px;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.icon-addon.addon-lg .fa,
+.icon-addon.addon-lg .glyphicon {
+    font-size: 18px;
+    margin-left: 0;
+    left: 11px;
+    top: 4px;
+}
+
+.icon-addon.addon-md .form-control,
+.icon-addon .form-control {
+    padding-left: 30px;
+    float: left;
+    font-weight: normal;
+}
+
+.icon-addon.addon-sm .fa,
+.icon-addon.addon-sm .glyphicon {
+    margin-left: 0;
+    font-size: 12px;
+    left: 5px;
+    top: -1px
+}
+
+.icon-addon .form-control:focus + .glyphicon,
+.icon-addon:hover .glyphicon,
+.icon-addon .form-control:focus + .fa,
+.icon-addon:hover .fa {
+    color: #2580db;
+}
+
+a {
+	color: #333;
+}
+
+
+
+
+td.details-control {
+    cursor: pointer;
+    font: 16px fontawesome;
+  	content: "\f0d7";
+}
+tr.shown td.details-control {
+	transform: rotate(-180deg);
+}

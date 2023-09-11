@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://www.movilidadbogota.gov.co/esb/schema/Foto/v1"
+            xmlns:xmime="http://www.w3.org/2005/05/xmlmime"
+            elementFormDefault="unqualified"
+            targetNamespace="http://www.movilidadbogota.gov.co/esb/schema/Foto/v1"
+            version="1.0">
+    
+    <xsd:import namespace="http://www.w3.org/2005/05/xmlmime"/>
+
+    <xsd:complexType name="Foto">
+        <xsd:sequence>
+            <xsd:element name="foto" type="xsd:base64Binary" xmime:expectedContentTypes="image/jpeg"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

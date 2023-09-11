@@ -1,0 +1,76 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.movilidadbogota.gov.co/esb/schema/Conductor/v1"
+	xmlns="http://www.movilidadbogota.gov.co/esb/schema/Conductor/v1"
+	xmlns:contacto="http://www.movilidadbogota.gov.co/esb/schema/ContactoPersona/v1"
+	xmlns:identificacion="http://www.movilidadbogota.gov.co/esb/schema/Identificacion/v1"
+	xmlns:tarjeta="http://www.movilidadbogota.gov.co/esb/schema/TarjetaControl/v1"
+	xmlns:empresa="http://www.movilidadbogota.gov.co/esb/schema/Empresa/v1"
+	xmlns:pagopila="http://www.movilidadbogota.gov.co/esb/schema/PagoPILA/v1"
+	xmlns:vehiculo="http://www.movilidadbogota.gov.co/esb/schema/Vehiculo/v1"
+	elementFormDefault="unqualified" version="1.0">
+
+	<xsd:import schemaLocation="ContactoPersona.xsd" namespace="http://www.movilidadbogota.gov.co/esb/schema/ContactoPersona/v1"/>
+	<xsd:import schemaLocation="Identificacion.xsd" namespace="http://www.movilidadbogota.gov.co/esb/schema/Identificacion/v1"/>
+	<xsd:import schemaLocation="TarjetaControl.xsd" namespace="http://www.movilidadbogota.gov.co/esb/schema/TarjetaControl/v1"/>
+	<xsd:import schemaLocation="Empresa.xsd" namespace="http://www.movilidadbogota.gov.co/esb/schema/Empresa/v1"/>
+	<xsd:import schemaLocation="PagoPILA.xsd" namespace="http://www.movilidadbogota.gov.co/esb/schema/PagoPILA/v1"/>
+	<xsd:import schemaLocation="Vehiculo.xsd" namespace="http://www.movilidadbogota.gov.co/esb/schema/Vehiculo/v1"/>
+
+<!--Este elemento hace referencia al condunctor a registrar-->
+	<xsd:complexType name="Conductor">
+		<xsd:sequence>
+			<!--Este elemento hace referencia a la entidad de identificación del conductor-->
+			<xsd:element name="identificacion" type="identificacion:Identificacion" maxOccurs="1" minOccurs="1" nillable="false"/>
+
+			<!--Este elemento hace referencia al nombre completo del conductor-->
+			<xsd:element name="nombreCompleto" type="xsd:string" maxOccurs="1" minOccurs="1" nillable="false"/>
+			<xsd:element name="primerNombre" type="xsd:string" maxOccurs="1" minOccurs="1" nillable="false"/>
+			<xsd:element name="segundoNombre" type="xsd:string" maxOccurs="1" minOccurs="1" nillable="false"/>
+			<xsd:element name="primerApellido" type="xsd:string" maxOccurs="1" minOccurs="1" nillable="false"/>
+			<xsd:element name="segundoApellido" type="xsd:string" maxOccurs="1" minOccurs="1" nillable="false"/>
+
+			<!--Este elemento hace referencia al grupo sanguineo del conductor en el sistema ABO-->
+			<xsd:element name="grupoSanguineo" maxOccurs="1" minOccurs="1" nillable="true">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="A"/>
+						<xsd:enumeration value="B"/>
+						<xsd:enumeration value="AB"/>
+						<xsd:enumeration value="O"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+
+			<!--Este elemento hace referencia al factor RH del conductor en el sistema positivo/negativo-->
+			<xsd:element name="factorRH" type="xsd:string" maxOccurs="1" minOccurs="1" nillable="true"/>
+
+			<!--Este elemento hace referencia al nombre de la eps a la que esta afiliado el conductor-->
+			<xsd:element name="eps" type="xsd:string" maxOccurs="1" minOccurs="1"  nillable="true"/>
+
+			<!--Este elemento hace referencia al nombre de la arl a la que esta afiliado el conductor-->
+			<xsd:element name="arl" type="xsd:string" maxOccurs="1" minOccurs="1"  nillable="true"/>
+
+			<!--Este elemento hace referencia al nombre de la empresa de pensiones a la que esta afiliado el conductor-->
+			<xsd:element name="pensiones" type="xsd:string" maxOccurs="1" minOccurs="1"  nillable="true"/>
+
+			<!--No se tiene información-->
+			<xsd:element name="numeroOrden" type="xsd:string" maxOccurs="1" minOccurs="1"  nillable="false"/>
+
+			<!--Entidad del contacto del conductor-->
+			<xsd:element name="contacto" type="contacto:ContactoPersona" maxOccurs="1" minOccurs="1" nillable="true"/>
+
+			<!--Entidad de la tarjeta del conductor-->
+			<xsd:element name="tarjetaControl" type="tarjeta:TarjetaControl" maxOccurs="1" minOccurs="1" nillable="true"/>
+
+			<!--Entidad que representa la empresa en la que labora del conductor-->
+			<xsd:element name="empresa" type="empresa:Empresa" maxOccurs="1" minOccurs="1" nillable="false"/>
+
+			<!--Entidad que representa el pago de parafiscales del conductor-->
+			<xsd:element name="pagopila" type="pagopila:PagoPILA" maxOccurs="unbounded" minOccurs="1" nillable="true"/>
+
+			<!--Entidad que representa el vehiculo que conduce el conductor a registrar-->
+			<xsd:element name="vehiculo" type="vehiculo:Vehiculo" maxOccurs="1" minOccurs="1" nillable="false"/>
+
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

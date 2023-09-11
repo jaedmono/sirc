@@ -1,0 +1,29 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<groupId>co.gov.movilidadbogota</groupId>
+	<artifactId>sirc</artifactId>
+	<version>1.0.0</version>
+	<packaging>pom</packaging>
+
+	<!-- Test push -->
+	
+	<modules>
+		<module>sirc-core</module>
+		<module>sirc-simur</module>
+		<module>sirc-web</module>
+		<module>sirc-ws</module>
+	</modules>
+
+	<properties>
+		<hibernate.version>5.1.0.Final</hibernate.version>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<org.slf4j-version>1.7.5</org.slf4j-version>
+		<org.springframework-version>4.2.5.RELEASE</org.springframework-version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<spring.security.version>4.2.2.RELEASE</spring.security.version>
+	</properties>
+</project>

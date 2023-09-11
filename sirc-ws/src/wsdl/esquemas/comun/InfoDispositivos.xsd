@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://www.movilidadbogota.gov.co/esb/schema/InfoDispositivos/v1"
+            xmlns:mun="http://www.movilidadbogota.gov.co/esb/schema/MunicipioTipo/v1"
+            elementFormDefault="unqualified"
+            targetNamespace="http://www.movilidadbogota.gov.co/esb/schema/InfoDispositivos/v1"
+            version="1.0">
+
+    <xsd:complexType name="InfoDispositivos">
+        <xsd:sequence>
+            <xsd:element maxOccurs="1" minOccurs="1" name="macid1" type="xsd:string"/>
+            <xsd:element maxOccurs="1" minOccurs="1" name="macid2" type="xsd:string"/>
+            <xsd:element maxOccurs="1" minOccurs="1" name="imei1" type="xsd:string"/>
+            <xsd:element maxOccurs="1" minOccurs="1" name="imei2" type="xsd:string"/>
+            <xsd:element maxOccurs="1" minOccurs="1" name="imei3" type="xsd:string"/>
+            <xsd:element maxOccurs="1" minOccurs="1" name="imei4" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

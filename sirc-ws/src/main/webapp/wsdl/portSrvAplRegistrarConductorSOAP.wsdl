@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.movilidadbogota.gov.co/Comun/SrvAplRegistrarConductor/v1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="SrvAplRegistrarConductor" targetNamespace="http://www.movilidadbogota.gov.co/Comun/SrvAplRegistrarConductor/v1">
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://www.movilidadbogota.gov.co/Comun/SrvAplRegistrarConductor/v1" schemaLocation="esquemas/operaciones/RegistrarConductor.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+
+	<wsdl:message name="mensajeRegistrarConductorSolicitud">
+		<wsdl:part element="tns:RegistrarConductorSolicitud" name="mensajeRegistrarConductorSolicitud"/>
+	</wsdl:message>
+
+	<wsdl:message name="mensajeRegistrarConductorRespuesta">
+		<wsdl:part element="tns:RegistrarConductorRespuesta" name="mensajeRegistrarConductorRespuesta"/>
+	</wsdl:message>
+
+	<wsdl:message name="mensajeRegistrarConductorError">
+		<wsdl:part element="tns:RegistrarConductorError" name="mensajeRegistrarConductorError"/>
+	</wsdl:message>
+
+	<wsdl:portType name="portSrvAplRegistrarConductorSOAP">
+		<wsdl:operation name="OperacionRegistrarConductor">
+			<wsdl:input message="tns:mensajeRegistrarConductorSolicitud"/>
+			<wsdl:output message="tns:mensajeRegistrarConductorRespuesta"/>
+			<wsdl:fault message="tns:mensajeRegistrarConductorError" name="mensajeRegistrarConductorError"/>
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<wsdl:binding name="bndSrvAplRegistrarConductorHttp" type="tns:portSrvAplRegistrarConductorSOAP">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="OperacionRegistrarConductor">
+			<soap:operation soapAction="http://www.movilidadbogota.gov.co/Comun/SrvAplRegistrarConductor/v1/OperacionRegistrarConductor"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+
+	<wsdl:service name="SrvAplRegistrarConductor">
+		<wsdl:port binding="tns:bndSrvAplRegistrarConductorHttp" name="portSrvAplRegistrarConductorSOAP">
+			<soap:address location="http://localhost:8080/sirc-ws/services/portSrvAplRegistrarConductorSOAP"/>
+		</wsdl:port>
+	</wsdl:service>
+
+</wsdl:definitions>

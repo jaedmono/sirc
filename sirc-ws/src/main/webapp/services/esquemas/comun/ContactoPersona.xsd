@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://www.movilidadbogota.gov.co/esb/schema/ContactoPersona/v1"
+	xmlns:tet="http://www.movilidadbogota.gov.co/esb/schema/Telefono/v1"
+	xmlns:ubi="http://www.movilidadbogota.gov.co/esb/schema/UbicacionPersona/v1"
+	elementFormDefault="unqualified"
+	targetNamespace="http://www.movilidadbogota.gov.co/esb/schema/ContactoPersona/v1"
+	version="1.0">
+
+	<xsd:import namespace="http://www.movilidadbogota.gov.co/esb/schema/Telefono/v1" schemaLocation="Telefono.xsd"/>
+	<xsd:import namespace="http://www.movilidadbogota.gov.co/esb/schema/UbicacionPersona/v1" schemaLocation="UbicacionPersona.xsd"/>
+
+ <!--Entidad del contacto del conductor, que contiene la información para ubicar al conductor-->
+	<xsd:complexType name="ContactoPersona">
+		<xsd:sequence>
+			<!--Entidad o Entidades del telefono del conductor-->
+			<xsd:element maxOccurs="unbounded" minOccurs="0" name="telefonos" type="tet:Telefono"/>
+
+			<!--Entidad o Entidades de la ubicacion del conductor-->
+			<xsd:element maxOccurs="unbounded" minOccurs="0" name="ubicaciones" type="ubi:UbicacionPersona"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

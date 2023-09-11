@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.movilidadbogota.gov.co/esb/schema/TarjetaControl/v1" elementFormDefault="unqualified" targetNamespace="http://www.movilidadbogota.gov.co/esb/schema/TarjetaControl/v1" version="1.0">
+
+	<!--Entidad que hace referencia a la tarjeta de control de la SMD cuando el conductor es registrado-->
+	<xsd:complexType name="TarjetaControl">
+		<xsd:sequence>
+			<!--Numero que identifica la tarjeta y el conductor registrado en el sistema SIRC-->
+			<xsd:element maxOccurs="1" minOccurs="1" name="numeroTarjetaControl" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

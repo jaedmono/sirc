@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.movilidadbogota.gov.co/esb/schema/PagoPILA/v1" elementFormDefault="unqualified" targetNamespace="http://www.movilidadbogota.gov.co/esb/schema/PagoPILA/v1" version="1.0">
+
+	<!--Entidad que hace referencia al pago de los aportes de los parafiscales del conductor-->
+	<xsd:complexType name="PagoPILA">
+		<xsd:sequence>
+			<!--Hace referencia al numero de aprobación del pago-->
+			<xsd:element maxOccurs="1" minOccurs="1" name="numeroAprobacionPagoPILA" type="xsd:string"/>
+
+			<!--Hace referencia al periodo ¿No se sabe aun que tipo de datos solicitar? -->
+			<xsd:element maxOccurs="1" minOccurs="1" name="periodoPagoPILA" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

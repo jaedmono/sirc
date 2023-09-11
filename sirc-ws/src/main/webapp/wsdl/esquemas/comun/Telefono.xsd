@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.movilidadbogota.gov.co/esb/schema/Telefono/v1" elementFormDefault="unqualified" targetNamespace="http://www.movilidadbogota.gov.co/esb/schema/Telefono/v1" version="1.0">
+
+	<!--Entidad que hace referencia al telefono del conductor-->
+	<xsd:complexType name="Telefono">
+		<xsd:sequence>
+			<!--Tipo de teléfono del conductor. (Fijo o celular)-->
+			<xsd:element maxOccurs="1" minOccurs="1" name="tipoTelefono" type="xsd:string"/>
+
+			<!--Número del teléfono del conductor-->
+			<xsd:element maxOccurs="1" minOccurs="1" name="numeroTelefono" type="xsd:long"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

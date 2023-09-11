@@ -1,0 +1,65 @@
+.checkboxfqa {
+    position: relative;
+    display: block;
+}
+
+.checkboxfqa input[type="checkbox"] {
+    width: auto;
+    opacity: 0.00000001;
+    position: absolute;
+    left: 0;
+    margin-left: -20px;
+}
+.factorqa {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: block;
+    font-size: 16px;
+    user-select: none;
+    color: #e7e7e7;
+}
+.factorqa:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 4px;
+    width: 15px;
+    height: 15px;
+    transition: transform 0.28s ease;
+    border-radius: 3px;
+    border: 2px solid #000;
+}
+.factorqa:after {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 5px;
+    border-bottom: 2px solid #000;
+    border-left: 2px solid #000;
+    -webkit-transform: rotate(-45deg) scale(0);
+    -moz-transform: rotate(-45deg) scale(0);
+    -ms-transform: rotate(-45deg) scale(0);
+    transform: rotate(-45deg) scale(0);
+    position: absolute;
+    top: 7px;
+    left: 7px;
+}
+.checkboxfqa input[type="checkbox"]:checked ~ .factorqa::before {
+    color: #000;
+}
+
+.checkboxfqa input[type="checkbox"]:checked ~ .factorqa::after {
+    -webkit-transform: rotate(-45deg) scale(1);
+    -moz-transform: rotate(-45deg) scale(1);
+    -ms-transform: rotate(-45deg) scale(1);
+    transform: rotate(-45deg) scale(1);
+}
+
+.checkboxfqa label {
+    padding-left: 25px;
+    vertical-align: sub;
+}
+.checkboxfqa input[type="checkbox"]:focus + label::before {
+    outline: rgb(59, 153, 252) auto 5px;

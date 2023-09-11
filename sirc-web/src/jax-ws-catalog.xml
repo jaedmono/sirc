@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="https://www.simbogota.com.co:8443/simBogotaWSCMS4_1/SimurWS?wsdl" uri="wsdl/www.simbogota.com.co_8443/simBogotaWSCMS4_1/SimurWS.wsdl"/>
+    <system systemId="https://www.simbogota.com.co:8443/simBogotaWSCMS4_1/SimurWS?xsd=1" uri="wsdl/www.simbogota.com.co_8443/simBogotaWSCMS4_1/SimurWS.xsd_1.xsd"/>
+</catalog>
